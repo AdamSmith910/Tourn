@@ -1,4 +1,4 @@
-var states = [
+export default states = [
   {
     header: {
       isUserLoggedIn: true,
@@ -7,11 +7,12 @@ var states = [
         facebookId: 0,
         userName: 'Player1',
         pic: 'someurl',
-        alerts: ['Congrats on your win!', 'Congrats on your win!', 'You won the tournament, go nuts!'],
+        alerts: ['Congrats on your win!', 'Congrats on your win!',
+                 'You won the tournament, go nuts!'],
         tournaments: [0],
       },
     },
-    currentTourn: {
+    tourn: {
       tournId: 0,
       tournName: 'MKS Ping Pong',
       tournType: 'Single',
@@ -27,7 +28,7 @@ var states = [
         {
           author: 'Player1',
           comment: 'Looks like you didn\'t!',
-        }
+        },
       ],
       organizerId: 0,
       rules: 'Everyone dies in the end.',
@@ -37,7 +38,6 @@ var states = [
           facebookId: 0,
           userName: 'Player1',
           pic: 'someurl',
-          status:
         },
         {
           userId: 1,
@@ -80,16 +80,48 @@ var states = [
           facebookId: 7,
           userName: 'Player8',
           pic: 'someurl',
-        }
+        },
       ],
-      rounds: [
-        [['Player1', 'Player2'], ['Player3', 'Player4'], ['Player5', 'Player6'], ['Player7', 'Player8']],
-        [['Player1', 'Player3'], ['Player5', 'Player7']],
-        [['Player1', 'Player5']]
-      ]
+      bracket:
+      {
+        matches: [
+          {
+            pair: ['Mark Boraski', 'Maher Dakkak'],
+          },
+          {
+            pair: ['Zack Perryman', 'Adam Smith'],
+          },
+          {
+            pair: ['Ryan Newton', 'James Lee'],
+          },
+          {
+            pair: ['Paul Schreiber', 'Jack Hall'],
+          },
+          {
+            pair: [],
+          },
+          {
+            pair: [],
+          },
+          {
+            pair: [],
+          },
+          {
+            pair: [],
+          },
+        ],
+        activePlayers: [
+          'Mark Boraski',
+          'Maher Dakkak',
+          'Zack Perryman',
+          'Adam Smith',
+          'Ryan Newton',
+          'James Lee',
+          'Paul Schreiber',
+          'Jack Hall',
+        ],
+      },
+    },
+  },
+];
 
-    }
-]
-
-
-export default states;

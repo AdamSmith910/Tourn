@@ -26,3 +26,14 @@ export function changeRule(type, rule, value){
   }
 }
 
+//user edits a rule
+export function advancePlayer(type, rule, value){
+  return {
+    type: 'CHANGE_RULE',
+    rule,
+    value,
+  }
+}
+
+
+
