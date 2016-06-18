@@ -42,7 +42,7 @@ var passport = require('passport'),
 //
 app.use(session({
   genid: function(req) {
-    return uuid(); 
+    return uuid();
   },
   secret: 'keyboard cat',
   resave: false,
@@ -66,8 +66,8 @@ passport.deserializeUser(function(obj, done) {
 
 //***************Facebook Authentication Routing********************
 passport.use(new FacebookStrategy({
-    clientID: '',
-    clientSecret: '',
+    clientID: '986354861484992',
+    clientSecret: '7966d7fab2fd294004fd28622a1aaad8',
     callbackURL: "http://localhost:4000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -105,7 +105,7 @@ passport.use(new FacebookStrategy({
 // Redirect the user to Facebook for authentication.  When complete,
 // Facebook will redirect the user back to the application at
 //     /auth/facebook/callback
-app.get('/auth/facebook', passport.authenticate('facebook'), function(req, res){ 
+app.get('/auth/facebook', passport.authenticate('facebook'), function(req, res){
 	// available callback function
 });
 
@@ -114,11 +114,12 @@ app.get('/auth/facebook', passport.authenticate('facebook'), function(req, res){
 // access was granted, the user will be logged in.  Otherwise,
 // authentication has failed.
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { 
-  	failureRedirect: '/login' 
+  passport.authenticate('facebook', {
+  	failureRedirect: '/login'
   }),
   function(req, res){
     res.redirect('/');
+    res.status(200).send('state and unique session token');
   }
 );
 //******************************************************************
